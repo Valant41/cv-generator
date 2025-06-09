@@ -36,6 +36,9 @@ export default function CVForm({ onSubmit, initialData = {} }) {
   const [email, setEmail] = useState(initialData.email || "");
   const [city, setCity] = useState(initialData.city || "");
   const [aboutMe, setAboutMe] = useState(initialData.aboutMe || "");
+  const [phone, setPhone] = useState(initialData.phone || "");
+  const [interests, setInterests] = useState(initialData.interests || "");
+
 
 
 
@@ -126,6 +129,8 @@ export default function CVForm({ onSubmit, initialData = {} }) {
       profileImage: imagePreview,
       email,
       city,
+      phone,
+      interests,
       aboutMe,
     };
     onSubmit(cvData);
@@ -167,6 +172,29 @@ export default function CVForm({ onSubmit, initialData = {} }) {
           onChange={(e) => setCity(e.target.value)}
         />
       </div>
+
+      <div>
+        <label className="block text-sm font-medium">Téléphone</label>
+        <input
+          type="tel"
+          className="w-full mt-1 p-2 border rounded-md"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          placeholder="+33 6 12 34 56 78"
+        />
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium">Centres d’intérêt</label>
+        <textarea
+          rows="2"
+          className="w-full mt-1 p-2 border rounded-md"
+          value={interests}
+          onChange={(e) => setInterests(e.target.value)}
+          placeholder="Ex : Musique, sport, voyage..."
+        />
+      </div>
+
 
 
       {/* Champs principaux */}

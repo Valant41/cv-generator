@@ -45,6 +45,21 @@ export default function PDFCV({ data }) {
               {data.city && <Text style={styles.text}>Ville :  {data.city || "à compléter"}</Text>}
             </View>
 
+            {data.phone && (
+              <View style={styles.section}>
+              <Text style={styles.label}>Téléphone</Text>
+              <Text style={styles.text}>{data.phone}</Text>
+              </View>
+            )}
+
+            {data.interests && (
+              <View style={styles.section}>
+              <Text style={styles.label}>Centres d’intérêt</Text>
+              <Text style={styles.text}>{data.interests}</Text>
+              </View>
+            )}
+
+
 
             <View style={styles.section}>
               <Text style={styles.label}>Compétences</Text>
