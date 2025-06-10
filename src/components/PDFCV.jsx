@@ -7,7 +7,7 @@ import {
   Image,
 } from "@react-pdf/renderer";
 
-// 🔤 Titre stylisé
+// 🔤 Titre stylisé.
 const SectionTitle = ({ title }) => (
   <View style={styles.sectionTitleContainer}>
     <Text style={styles.sectionTitle}>{title}</Text>
