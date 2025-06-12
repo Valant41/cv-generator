@@ -235,10 +235,34 @@ export default function CVForm({ onSubmit, initialData = {} }) {
   />
   <button
     type="button"
-    onClick={() => {
-      const generated = `Passionné par le domaine du ${jobTitle.toLowerCase()}, j’ai acquis une solide base grâce à ma formation ${education || "en informatique"} et je suis motivé à intégrer une équipe dynamique pour relever de nouveaux défis.`;
-      setAboutMe(generated);
-    }}
+    onClick={async () => {
+  try {
+    const response = await fetch("https://cv-generator-93on.onrender.com/generate-about-me", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        fullName,
+        jobTitle,
+        education,
+        skills,
+        interests,
+        languages,
+      }),
+    });
+
+    const data = await response.json();
+    if (response.ok) {
+      setAboutMe(data.aboutMe);
+    } else {
+      console.error("Erreur IA:", data.error);
+    }
+  } catch (err) {
+    console.error("Erreur requête:", err);
+  }
+}}
+
     className="mt-2 bg-gray-200 hover:bg-gray-300 text-sm text-gray-700 px-3 py-1 rounded-md"
   >
     ✨ Générer automatiquement

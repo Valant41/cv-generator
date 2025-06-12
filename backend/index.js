@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import { Configuration, OpenAIApi } from "openai";
+import { OpenAI } from "openai";
 
 dotenv.config();
 
@@ -11,33 +11,43 @@ const port = process.env.PORT || 4000;
 app.use(cors());
 app.use(express.json());
 
-const configuration = new Configuration({
+const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-const openai = new OpenAIApi(configuration);
 
-app.post("/generate-about", async (req, res) => {
-  const { jobTitle, education } = req.body;
+app.post("/generate-about-me", async (req, res) => {
+  const { fullName, jobTitle, skills, education, interests, languages } = req.body;
 
-  if (!jobTitle || !education) {
-    return res.status(400).json({ error: "jobTitle et education sont requis." });
+  if (!fullName || !jobTitle) {
+    return res.status(400).json({ error: "fullName et jobTitle sont requis." });
   }
 
   try {
-    const prompt = `Rédige un paragraphe de présentation professionnelle pour un candidat qui vise le poste de ${jobTitle}. Il a étudié ${education}. Le texte doit être fluide, professionnel, et adapté à un CV.`;
+    const prompt = `
+Tu es un expert en rédaction de CV. Génère un court paragraphe (3-4 phrases maximum) pour la section "À propos de moi" d’un CV.
 
-    const response = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt,
+Infos du candidat :
+Nom : ${fullName}
+Poste visé : ${jobTitle}
+Formation : ${education || "non précisée"}
+Compétences : ${skills || "non précisées"}
+Centres d’intérêt : ${interests || "non précisés"}
+Langues : ${languages?.map(l => `${l.lang} (${l.level})`).join(", ") || "non précisées"}
+
+Le texte doit être professionnel, concis, pertinent pour le poste. Ne commence pas par "Je suis".
+`;
+
+    const completion = await openai.chat.completions.create({
+      messages: [{ role: "user", content: prompt }],
+      model: "gpt-3.5-turbo",
       temperature: 0.7,
-      max_tokens: 120,
     });
 
-    const generatedText = response.data.choices[0].text.trim();
+    const generatedText = completion.choices[0].message.content.trim();
     res.json({ aboutMe: generatedText });
   } catch (error) {
     console.error("Erreur OpenAI:", error.message);
-    res.status(500).json({ error: "Erreur lors de la génération." });
+    res.status(500).json({ error: "Erreur lors de la génération du texte." });
   }
 });
 
@@ -46,5 +56,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Serveur démarré sur http://localhost:${port}`);
+  console.log(`✅ Serveur backend lancé sur http://localhost:${port}`);
 });
