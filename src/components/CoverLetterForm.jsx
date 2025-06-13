@@ -30,7 +30,12 @@ export default function CoverLetterForm() {
         jobTitle: cvData.jobTitle || "",
         education: cvData.formations?.map(f => f.degree + " à " + f.school).join(", ") || "",
         skills: cvData.skills || "",
-        experiences: cvData.experiences?.map(e => `${e.position} chez ${e.company}`).join(", ") || "",
+        experiences: typeof cvData.experiences === "string"
+  ? cvData.experiences
+  : Array.isArray(cvData.experiences)
+    ? cvData.experiences.map(e => `${e.position} chez ${e.company}`).join(", ")
+    : "",
+
         interests: cvData.interests || "",
       }));
     }

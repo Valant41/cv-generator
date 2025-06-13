@@ -32,7 +32,14 @@ Poste visé : ${jobTitle}
 Formation : ${education || "non précisée"}
 Compétences : ${skills || "non précisées"}
 Centres d’intérêt : ${interests || "non précisés"}
-Langues : ${languages?.map(l => `${l.lang} (${l.level})`).join(", ") || "non précisées"}
+Langues : ${
+  Array.isArray(languages)
+    ? languages.map(l => `${l.lang} (${l.level})`).join(", ")
+    : typeof languages === 'string' && languages.trim()
+      ? languages.trim()
+      : "non précisées"
+}
+
 
 Le texte doit être professionnel, concis, pertinent pour le poste. Ne commence pas par "Je suis".
 `;
