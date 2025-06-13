@@ -33,13 +33,6 @@ export default function PDFCV({ data }) {
             <Text style={styles.jobTitle}>{data.jobTitle}</Text>
 
             <View style={styles.section}>
-              <Text style={styles.label}>Profil</Text>
-              <Text style={styles.text}>
-                Candidat motivé, rigoureux et passionné par les nouvelles technologies.
-              </Text>
-            </View>
-
-            <View style={styles.section}>
               <Text style={styles.label}>Contact</Text>
               {data.email && <Text style={styles.text}>Email : {data.email || "à compléter"}</Text>}
               {data.city && <Text style={styles.text}>Ville :  {data.city || "à compléter"}</Text>}
