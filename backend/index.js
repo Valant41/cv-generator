@@ -52,6 +52,9 @@ Le texte doit être professionnel, concis, pertinent pour le poste. Ne commence 
 });
 
 app.post("/generate-cover-letter", async (req, res) => {
+  console.log("✅ Requête POST reçue sur /generate-cover-letter");
+  console.log("📥 Données reçues :", req.body);
+
   const {
     fullName,
     jobTitle,
@@ -76,6 +79,8 @@ Ses centres d’intérêt : ${interests || "non précisés"}.
 Sois direct, convaincant, professionnel. Ne fais pas de phrases bateau. Personnalise le message selon le poste et l’entreprise.
     `;
 
+    console.log("🧠 Prompt généré pour OpenAI :\n", prompt);
+
     const completion = await openai.chat.completions.create({
       messages: [{ role: "user", content: prompt }],
       model: "gpt-3.5-turbo",
@@ -83,12 +88,15 @@ Sois direct, convaincant, professionnel. Ne fais pas de phrases bateau. Personna
     });
 
     const letter = completion.choices[0].message.content.trim();
+    console.log("✅ Lettre générée par OpenAI :\n", letter);
+
     res.json({ letter });
   } catch (err) {
-    console.error("Erreur OpenAI:", err.message);
+    console.error("❌ Erreur OpenAI:", err.message);
     res.status(500).json({ error: "Erreur IA lors de la génération de la lettre." });
   }
 });
+
 
 
 app.get("/", (req, res) => {

@@ -41,16 +41,22 @@ export default function CoverLetterForm() {
   };
 
   const generateLetter = async () => {
-    try {
-      const response = await axios.post(
-        "https://cv-generator-93on.onrender.com/generate-cover-letter",
-        form
-      );
-      setGeneratedLetter(response.data.letter);
-    } catch (err) {
-      console.error("Erreur lors de la génération :", err);
-    }
-  };
+  console.log("🟢 Bouton Générer cliqué !");
+  console.log("📤 Données envoyées au backend :", form);
+
+  try {
+    const response = await axios.post(
+      "https://cv-generator-93on.onrender.com/generate-cover-letter",
+      form
+    );
+
+    console.log("✅ Réponse reçue du backend :", response.data);
+    setGeneratedLetter(response.data.letter);
+  } catch (err) {
+    console.error("❌ Erreur lors de la génération :", err.response?.data || err.message);
+  }
+};
+
 
   return (
     <div className="max-w-2xl mx-auto p-6">
