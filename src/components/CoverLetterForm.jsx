@@ -4,9 +4,12 @@ import axios from "axios";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import CoverLetterPDF from "./CoverLetterPDF";
 
+
 export default function CoverLetterForm() {
   const location = useLocation();
   const cvData = location.state?.cvData;
+  const [loading, setLoading] = useState(false);
+
 
   const [form, setForm] = useState({
     fullName: "",
@@ -49,6 +52,9 @@ export default function CoverLetterForm() {
   console.log("🟢 Bouton Générer cliqué !");
   console.log("📤 Données envoyées au backend :", form);
 
+  setLoading(true); // ▶️ Démarre l'animation
+  setGeneratedLetter(""); // (optionnel) vide le texte précédent
+
   try {
     const response = await axios.post(
       "https://cv-generator-93on.onrender.com/generate-cover-letter",
@@ -59,8 +65,11 @@ export default function CoverLetterForm() {
     setGeneratedLetter(response.data.letter);
   } catch (err) {
     console.error("❌ Erreur lors de la génération :", err.response?.data || err.message);
+  } finally {
+    setLoading(false); // ⏹️ Arrête l'animation
   }
 };
+
 
 
   return (
@@ -97,6 +106,18 @@ export default function CoverLetterForm() {
       >
         Générer
       </button>
+
+      {loading && (
+  <div className="mt-6 flex justify-center items-center gap-2 text-gray-600">
+    <svg className="animate-spin h-5 w-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+    </svg>
+    <span>Génération de la lettre en cours...</span>
+  </div>
+)}
+
+
 
       {generatedLetter && (
         <>

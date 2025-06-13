@@ -38,6 +38,8 @@ export default function CVForm({ onSubmit, initialData = {} }) {
   const [aboutMe, setAboutMe] = useState(initialData.aboutMe || "");
   const [phone, setPhone] = useState(initialData.phone || "");
   const [interests, setInterests] = useState(initialData.interests || "");
+  const [loadingAbout, setLoadingAbout] = useState(false);
+
 
 
 
@@ -135,6 +137,30 @@ export default function CVForm({ onSubmit, initialData = {} }) {
     };
     onSubmit(cvData);
   };
+
+  const Spinner = () => (
+  <svg
+    className="animate-spin h-4 w-4 mr-2 text-gray-500 inline"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+  >
+    <circle
+      className="opacity-25"
+      cx="12"
+      cy="12"
+      r="10"
+      stroke="currentColor"
+      strokeWidth="4"
+    ></circle>
+    <path
+      className="opacity-75"
+      fill="currentColor"
+      d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+    ></path>
+  </svg>
+);
+
 
   return (
     <form onSubmit={handleSubmit} className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-xl space-y-6">
@@ -234,39 +260,45 @@ export default function CVForm({ onSubmit, initialData = {} }) {
     placeholder="Ex : Passionné par le développement web, je suis rigoureux, autonome et motivé..."
   />
   <button
-    type="button"
-    onClick={async () => {
-  try {
-    const response = await fetch("https://cv-generator-93on.onrender.com/generate-about-me", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        fullName,
-        jobTitle,
-        education,
-        skills,
-        interests,
-        languages,
-      }),
-    });
+  type="button"
+  onClick={async () => {
+    setLoadingAbout(true);
+    try {
+      const response = await fetch("https://cv-generator-93on.onrender.com/generate-about-me", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ fullName, jobTitle, education, skills, interests, languages }),
+      });
 
-    const data = await response.json();
-    if (response.ok) {
-      setAboutMe(data.aboutMe);
-    } else {
-      console.error("Erreur IA:", data.error);
+      const data = await response.json();
+      if (response.ok) {
+        setAboutMe(data.aboutMe);
+      } else {
+        console.error("Erreur IA:", data.error);
+      }
+    } catch (err) {
+      console.error("Erreur requête:", err);
+    } finally {
+      setLoadingAbout(false);
     }
-  } catch (err) {
-    console.error("Erreur requête:", err);
-  }
-}}
+  }}
+  disabled={loadingAbout}
+  className={`mt-2 px-3 py-1 rounded-md text-sm flex items-center ${
+    loadingAbout
+      ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+      : "bg-gray-200 hover:bg-gray-300 text-gray-700"
+  }`}
+>
+  {loadingAbout ? (
+    <>
+      <Spinner />
+      Génération...
+    </>
+  ) : (
+    "✨ Générer automatiquement"
+  )}
+</button>
 
-    className="mt-2 bg-gray-200 hover:bg-gray-300 text-sm text-gray-700 px-3 py-1 rounded-md"
-  >
-    ✨ Générer automatiquement
-  </button>
 </div>
 
 
