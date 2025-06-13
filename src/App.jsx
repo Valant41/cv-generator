@@ -7,8 +7,8 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import { useNavigate } from "react-router-dom";
 import { Routes, Route, Link } from "react-router-dom";
 import CoverLetterForm from "./components/CoverLetterForm";
-import Confidentialite from "./pages/Confidentialite";
-import MentionsLegales from "./pages/MentionsLegales";
+import Confidentialite from "./components/Confidentialite";
+import MentionsLegales from "./components/MentionsLegales";
 
 function Footer() {
   return (
