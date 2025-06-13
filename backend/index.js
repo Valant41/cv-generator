@@ -73,7 +73,10 @@ Tu es un expert en rédaction RH. Rédige une lettre de motivation professionnel
 ${recruiterName ? `La lettre est adressée à ${recruiterName}.` : ""}
 Il a étudié : ${education || "non précisé"}.
 Ses compétences : ${skills || "non précisées"}.
-Ses expériences : ${experiences?.map(e => e.position + " chez " + e.company).join(", ") || "non précisées"}.
+Ses expériences : ${Array.isArray(experiences)
+  ? experiences.map(e => e.position + " chez " + e.company).join(", ")
+  : experiences || "non précisées"}.
+
 Ses centres d’intérêt : ${interests || "non précisés"}.
 
 Sois direct, convaincant, professionnel. Ne fais pas de phrases bateau. Personnalise le message selon le poste et l’entreprise.
