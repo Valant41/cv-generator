@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function MentionsLegales() {
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white rounded shadow mt-6">
@@ -7,14 +9,20 @@ export default function MentionsLegales() {
         <strong>Éditeur du site :</strong> <br />
         Nom : Valentin (particulier) <br />
         Adresse : non communiquée (résidence privée) <br />
-        Email : valant045@hotmail.com<br />
+        Email :{" "}
+        <a href="mailto:valant045@hotmail.com" className="text-blue-600 underline">
+          valant045@hotmail.com
+        </a>
       </p>
 
       <p className="mb-2">
         <strong>Hébergement :</strong> <br />
         Ce site est hébergé par Vercel Inc. <br />
         Adresse : 340 S Lemon Ave #4133, Walnut, CA 91789, USA <br />
-        Site : <a href="https://vercel.com" className="text-blue-600 underline">vercel.com</a>
+        Site :{" "}
+        <a href="https://vercel.com" className="text-blue-600 underline" target="_blank" rel="noopener noreferrer">
+          vercel.com
+        </a>
       </p>
 
       <p className="mb-2">
@@ -27,9 +35,15 @@ export default function MentionsLegales() {
         L’éditeur ne peut être tenu responsable de l’utilisation des informations ou outils mis à disposition sur ce site.
       </p>
 
-      <p className="mb-2 text-sm text-gray-500">
+      <p className="mb-4 text-sm text-gray-500">
         Ces mentions légales sont susceptibles d’évoluer en cas de changement de statut juridique.
       </p>
+
+      <div className="text-center mt-6">
+        <Link to="/" className="text-blue-600 underline hover:text-blue-800">
+          ← Retour à l'accueil
+        </Link>
+      </div>
     </div>
   );
 }
