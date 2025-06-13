@@ -4,13 +4,23 @@ import axios from "axios";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import CoverLetterPDF from "./CoverLetterPDF";
 
+const fieldLabels = {
+  fullName: "Nom complet",
+  jobTitle: "Poste visé",
+  education: "Formation",
+  skills: "Compétences",
+  experiences: "Expériences",
+  interests: "Centres d’intérêt",
+  companyName: "Nom de l’entreprise",
+  location: "Lieu du poste",
+  recruiterName: "Nom du recruteur (facultatif)",
+};
 
 export default function CoverLetterForm() {
   const location = useLocation();
   const cvData = location.state?.cvData;
+
   const [loading, setLoading] = useState(false);
-
-
   const [form, setForm] = useState({
     fullName: "",
     jobTitle: "",
@@ -33,12 +43,9 @@ export default function CoverLetterForm() {
         jobTitle: cvData.jobTitle || "",
         education: cvData.formations?.map(f => f.degree + " à " + f.school).join(", ") || "",
         skills: cvData.skills || "",
-        experiences: typeof cvData.experiences === "string"
-  ? cvData.experiences
-  : Array.isArray(cvData.experiences)
-    ? cvData.experiences.map(e => `${e.position} chez ${e.company}`).join(", ")
-    : "",
-
+        experiences: Array.isArray(cvData.experiences)
+          ? cvData.experiences.map(e => `${e.position} chez ${e.company}`).join(", ")
+          : typeof cvData.experiences === "string" ? cvData.experiences : "",
         interests: cvData.interests || "",
       }));
     }
@@ -49,28 +56,20 @@ export default function CoverLetterForm() {
   };
 
   const generateLetter = async () => {
-  console.log("🟢 Bouton Générer cliqué !");
-  console.log("📤 Données envoyées au backend :", form);
-
-  setLoading(true); // ▶️ Démarre l'animation
-  setGeneratedLetter(""); // (optionnel) vide le texte précédent
-
-  try {
-    const response = await axios.post(
-      "https://cv-generator-93on.onrender.com/generate-cover-letter",
-      form
-    );
-
-    console.log("✅ Réponse reçue du backend :", response.data);
-    setGeneratedLetter(response.data.letter);
-  } catch (err) {
-    console.error("❌ Erreur lors de la génération :", err.response?.data || err.message);
-  } finally {
-    setLoading(false); // ⏹️ Arrête l'animation
-  }
-};
-
-
+    setLoading(true);
+    setGeneratedLetter("");
+    try {
+      const response = await axios.post(
+        "https://cv-generator-93on.onrender.com/generate-cover-letter",
+        form
+      );
+      setGeneratedLetter(response.data.letter);
+    } catch (err) {
+      console.error("❌ Erreur :", err.response?.data || err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="max-w-2xl mx-auto p-6">
@@ -78,10 +77,10 @@ export default function CoverLetterForm() {
 
       {Object.entries(form).map(([key, value]) => (
         <div key={key} className="mb-4">
-          <label className="block font-semibold mb-1 capitalize">
-            {key.replace(/([A-Z])/g, ' $1')}
+          <label className="block font-semibold mb-1">
+            {fieldLabels[key] || key}
           </label>
-          {key === "experiences" || key === "interests" ? (
+          {(key === "experiences" || key === "interests") ? (
             <textarea
               name={key}
               value={value}
@@ -108,22 +107,25 @@ export default function CoverLetterForm() {
       </button>
 
       {loading && (
-  <div className="mt-6 flex justify-center items-center gap-2 text-gray-600">
-    <svg className="animate-spin h-5 w-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
-    </svg>
-    <span>Génération de la lettre en cours...</span>
-  </div>
-)}
-
-
+        <div className="mt-6 flex justify-center items-center gap-2 text-gray-600">
+          <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+          </svg>
+          <span>Génération de la lettre en cours...</span>
+        </div>
+      )}
 
       {generatedLetter && (
         <>
-          <div className="mt-6 p-4 border border-gray-300 bg-white rounded shadow">
-            <h2 className="text-xl font-semibold mb-2">Lettre générée :</h2>
-            <p className="whitespace-pre-wrap">{generatedLetter}</p>
+          <div className="mt-6">
+            <label className="block font-semibold mb-2">Lettre générée (modifiable) :</label>
+            <textarea
+              value={generatedLetter}
+              onChange={(e) => setGeneratedLetter(e.target.value)}
+              rows={10}
+              className="w-full border border-gray-300 rounded px-3 py-2 whitespace-pre-wrap"
+            />
           </div>
 
           <div className="text-center mt-4">
