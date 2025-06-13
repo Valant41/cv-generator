@@ -51,6 +51,46 @@ Le texte doit être professionnel, concis, pertinent pour le poste. Ne commence 
   }
 });
 
+app.post("/generate-cover-letter", async (req, res) => {
+  const {
+    fullName,
+    jobTitle,
+    education,
+    skills,
+    experiences,
+    interests,
+    companyName,
+    location,
+    recruiterName,
+  } = req.body;
+
+  try {
+    const prompt = `
+Tu es un expert en rédaction RH. Rédige une lettre de motivation professionnelle pour un poste de "${jobTitle}" chez "${companyName}" à "${location}". Le candidat s'appelle ${fullName}.
+${recruiterName ? `La lettre est adressée à ${recruiterName}.` : ""}
+Il a étudié : ${education || "non précisé"}.
+Ses compétences : ${skills || "non précisées"}.
+Ses expériences : ${experiences?.map(e => e.position + " chez " + e.company).join(", ") || "non précisées"}.
+Ses centres d’intérêt : ${interests || "non précisés"}.
+
+Sois direct, convaincant, professionnel. Ne fais pas de phrases bateau. Personnalise le message selon le poste et l’entreprise.
+    `;
+
+    const completion = await openai.chat.completions.create({
+      messages: [{ role: "user", content: prompt }],
+      model: "gpt-3.5-turbo",
+      temperature: 0.7,
+    });
+
+    const letter = completion.choices[0].message.content.trim();
+    res.json({ letter });
+  } catch (err) {
+    console.error("Erreur OpenAI:", err.message);
+    res.status(500).json({ error: "Erreur IA lors de la génération de la lettre." });
+  }
+});
+
+
 app.get("/", (req, res) => {
   res.send("Backend IA pour CV prêt 🚀");
 });
