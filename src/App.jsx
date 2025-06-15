@@ -4,11 +4,11 @@ import CVForm from "./components/CVForm";
 import PDFPreview from "./components/PDFPreview";
 import CVPDF from "./components/PDFCV";
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import { useNavigate } from "react-router-dom";
-import { Routes, Route, Link } from "react-router-dom";
+import { useNavigate, Routes, Route, Link } from "react-router-dom";
 import CoverLetterForm from "./components/CoverLetterForm";
 import Confidentialite from "./components/Confidentialite";
 import MentionsLegales from "./components/MentionsLegales";
+import Home from "./components/Home"; // ✅ Nouvelle page d'accueil
 
 function Footer() {
   return (
@@ -43,8 +43,12 @@ export default function App() {
       <Header />
       <main className="py-6 px-4 flex-grow">
         <Routes>
+          {/* ✅ Page d’accueil */}
+          <Route path="/" element={<Home />} />
+
+          {/* ✅ Générateur de CV (séparé) */}
           <Route
-            path="/"
+            path="/generateur-cv"
             element={
               editMode ? (
                 <CVForm
@@ -86,6 +90,8 @@ export default function App() {
               )
             }
           />
+
+          {/* Autres routes */}
           <Route path="/lettre-de-motivation" element={<CoverLetterForm />} />
           <Route path="/confidentialite" element={<Confidentialite />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
