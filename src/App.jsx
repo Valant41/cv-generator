@@ -8,7 +8,9 @@ import { useNavigate, Routes, Route, Link } from "react-router-dom";
 import CoverLetterForm from "./components/CoverLetterForm";
 import Confidentialite from "./components/Confidentialite";
 import MentionsLegales from "./components/MentionsLegales";
-import Home from "./components/Home"; // ✅ Nouvelle page d'accueil
+import APropos from "./components/APropos";
+import Home from "./components/Home";
+
 
 function Footer() {
   return (
@@ -95,6 +97,8 @@ export default function App() {
           <Route path="/lettre-de-motivation" element={<CoverLetterForm />} />
           <Route path="/confidentialite" element={<Confidentialite />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
+          <Route path="/a-propos" element={<APropos />} /> 
+          
         </Routes>
       </main>
       <Footer />

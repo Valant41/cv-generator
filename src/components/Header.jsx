@@ -20,6 +20,9 @@ export default function Header() {
           <Link to="/lettre-de-motivation" className="hover:underline">
             Lettre de motivation
           </Link>
+          <Link to="/a-propos" className="hover:underline mx-2">
+            À propos
+          </Link>
         </nav>
       </div>
     </header>
