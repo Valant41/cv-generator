@@ -178,6 +178,12 @@ export default function CVForm({ onSubmit, initialData = {} }) {
       </div>
 
       <h3 className="text-lg font-semibold text-blue-700 mt-6">📌 Coordonnées</h3>
+
+      <div>
+        <label className="block text-sm font-medium">Nom complet</label>
+        <input type="text" className="w-full mt-1 p-2 border rounded-md" value={fullName} onChange={(e) => setFullName(e.target.value)} required />
+      </div>
+
       <div>
         <label className="block text-sm font-medium">Email</label>
         <input
@@ -225,10 +231,6 @@ export default function CVForm({ onSubmit, initialData = {} }) {
 
       {/* Champs principaux */}
       <h3 className="text-lg font-semibold text-blue-700 mt-6">🎓 Formation actuelle & Compétences</h3>
-      <div>
-        <label className="block text-sm font-medium">Nom complet</label>
-        <input type="text" className="w-full mt-1 p-2 border rounded-md" value={fullName} onChange={(e) => setFullName(e.target.value)} required />
-      </div>
 
       <div>
         <label className="block text-sm font-medium">Poste visé</label>
