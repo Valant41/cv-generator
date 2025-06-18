@@ -16,6 +16,7 @@ export default function Header() {
           <span>
             <span className="font-extrabold">Votre CV</span>{" "}
             <span className="font-light">en ligne</span>
+            <span className="text-xs text-white/70 ml-2 italic">by VR</span>
           </span>
         </Link>
 
