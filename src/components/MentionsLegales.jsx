@@ -17,7 +17,7 @@ export default function MentionsLegales() {
 
       <p className="mb-2">
         <strong>Hébergement :</strong> <br />
-        Ce site est hébergé par Vercel Inc. <br />
+        Ce site, intitulé “CV Generator IA”, est hébergé par Vercel Inc. <br />
         Adresse : 340 S Lemon Ave #4133, Walnut, CA 91789, USA <br />
         Site :{" "}
         <a href="https://vercel.com" className="text-blue-600 underline" target="_blank" rel="noopener noreferrer">
@@ -27,7 +27,7 @@ export default function MentionsLegales() {
 
       <p className="mb-2">
         <strong>Propriété intellectuelle :</strong> <br />
-        Le contenu de ce site (textes, images, fonctionnalités) est protégé par le droit d’auteur. Toute reproduction, totale ou partielle, sans autorisation préalable est interdite.
+        Le contenu de CV Generator IA (textes, images, fonctionnalités) est protégé par le droit d’auteur. Toute reproduction, totale ou partielle, sans autorisation préalable est interdite.
       </p>
 
       <p className="mb-2">

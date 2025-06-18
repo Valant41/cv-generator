@@ -3,12 +3,15 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <div className="max-w-3xl mx-auto bg-white p-8 mt-10 rounded shadow-md">
+      
+      <button className="btn btn-primary">Test DaisyUI</button>
+
       <h1 className="text-3xl font-extrabold text-center text-gray-800 mb-6">
-        🎯 Bienvenue sur notre générateur de CV et de lettres de motivation
+        🎯 Bienvenue sur CV Generator IA, votre outil gratuit pour créer un CV et une lettre de motivation
       </h1>
 
       <p className="text-gray-600 mb-6 text-center">
-        Ce site a été conçu pour vous aider à créer un CV professionnel et une lettre de motivation personnalisée facilement, gratuitement et sans inscription. Grâce à l’intelligence artificielle, vous obtenez un résultat rapide, propre et efficace, directement depuis votre navigateur.
+        CV Generator IA a été conçu pour vous aider à créer un CV professionnel et une lettre de motivation personnalisée facilement, gratuitement et sans inscription. Grâce à l’intelligence artificielle, vous obtenez un résultat rapide, propre et efficace, directement depuis votre navigateur.
       </p>
 
       {/* Pourquoi un bon CV est important */}
