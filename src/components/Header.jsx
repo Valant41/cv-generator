@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.png"; // adapte le chemin selon ton arborescence
 
 export default function Header() {
   return (
     <header className="bg-gradient-to-r from-[#2c2c72] to-[#4849a7] py-4 px-8 text-white shadow-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Logo */}
+        {/* Logo + Titre */}
         <Link to="/" className="text-2xl sm:text-3xl font-bold flex items-center gap-2">
-          ✅ <span className="font-extrabold">Votre CV</span> <span className="font-light">en ligne</span>
+          <img src={logo} alt="Logo" className="w-8 h-8 object-contain" />
+          <span>
+            <span className="font-extrabold">Votre CV</span> <span className="font-light">en ligne</span>
+          </span>
         </Link>
 
         {/* Navigation */}
