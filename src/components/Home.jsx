@@ -10,9 +10,9 @@ export default function Home() {
       {/* Hero section */}
       <section className="bg-gradient-to-r from-blue-100 to-white py-20 px-4 text-center">
         <div className="max-w-5xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl font-extrabold mb-4">Votre CV est ignoré ? 📄</h1>
+          <h1 className="text-3xl sm:text-4xl font-extrabold mb-4">Créez un CV professionnel en quelques clics ✨</h1>
           <p className="text-base sm:text-lg mb-6 max-w-2xl mx-auto">
-            Adaptez-le aux recruteurs et aux logiciels de tri automatique (ATS) grâce à notre générateur intelligent.
+            Générez automatiquement un CV clair, moderne et optimisé avec l’aide de notre intelligence artificielle.
           </p>
           <img
             src={cvImage}
