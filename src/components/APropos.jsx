@@ -1,30 +1,37 @@
 export default function APropos() {
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8 bg-white rounded shadow">
-      <h1 className="text-3xl font-bold mb-4">À propos de ce site</h1>
+    <div className="max-w-3xl mx-auto px-6 py-12 bg-white rounded-2xl shadow-lg mt-10">
+      <h1 className="text-4xl font-extrabold mb-8 text-center text-gray-900">À propos</h1>
 
-      <p className="mb-4">
-        Bienvenue sur notre plateforme de génération de CV et de lettres de motivation. Ce projet a été lancé avec un objectif simple : faciliter la création de documents professionnels pour toutes celles et ceux qui souhaitent postuler efficacement, sans perdre de temps.
+      <p className="mb-6 text-gray-800 text-lg leading-relaxed">
+        Bienvenue sur notre plateforme de génération de <strong>CV</strong> et de <strong>lettres de motivation</strong>.  
+        Ce projet a été lancé avec une mission simple : permettre à chacun de créer rapidement des documents de candidature <strong>professionnels, clairs et efficaces</strong>.
       </p>
 
-      <p className="mb-4">
-        Nous savons à quel point la rédaction d’un bon CV ou d’une lettre de motivation peut être stressante et chronophage, surtout lorsqu’on n’a pas les bons outils ou qu’on débute. C’est pourquoi ce site a été conçu pour offrir une solution simple, gratuite, sans inscription, et accessible à tous.
+      <p className="mb-6 text-gray-800 text-lg leading-relaxed">
+        Nous savons à quel point la rédaction d’un bon CV ou d’une lettre de motivation peut être stressante, surtout lorsqu’on débute ou qu’on manque de temps.
+        C’est pourquoi ce site propose une solution <strong>gratuite, sans inscription</strong> et accessible à tous.
       </p>
 
-      <p className="mb-4">
-        Grâce à l’intelligence artificielle, nous proposons un assistant capable de générer automatiquement une lettre de motivation personnalisée à partir de quelques informations. De plus, notre système permet de visualiser en temps réel un aperçu PDF de votre CV, prêt à être téléchargé.
+      <p className="mb-6 text-gray-800 text-lg leading-relaxed">
+        Grâce à l’<strong>intelligence artificielle</strong>, vous pouvez générer automatiquement une lettre de motivation personnalisée à partir de quelques informations simples.
+        Le tout accompagné d’un aperçu <strong>PDF en temps réel</strong> de votre CV, prêt à être téléchargé.
       </p>
 
-      <p className="mb-4">
-        Aucune donnée n’est conservée : tout est traité localement dans votre navigateur. Nous avons fait le choix de la confidentialité totale pour garantir un service sûr et respectueux de votre vie privée.
+      <p className="mb-6 text-gray-800 text-lg leading-relaxed">
+        ⚠️ Aucune donnée personnelle n’est conservée : tout est traité <strong>localement dans votre navigateur</strong>.  
+        Nous avons fait le choix de la confidentialité totale, pour garantir un service <strong>respectueux de votre vie privée</strong>.
       </p>
 
-      <p className="mb-4">
-        Ce site a été développé dans le cadre d’un projet personnel, avec une volonté de contribuer à l’amélioration de l’accès aux outils de recherche d’emploi. Que vous soyez étudiant, en reconversion, ou professionnel en quête d’un nouveau poste, ce service est là pour vous accompagner.
+      <p className="mb-6 text-gray-800 text-lg leading-relaxed">
+        Ce site est un <strong>projet personnel</strong>, né d'une envie de contribuer à l'amélioration de l'accès aux outils de recherche d’emploi.
+        Que vous soyez <em>étudiant</em>, en <em>reconversion</em> ou <em>professionnel</em> en quête d’un nouveau défi, ce service est là pour vous accompagner.
       </p>
 
-      <p>
-        Pour toute question, suggestion ou collaboration, n’hésitez pas à nous contacter. Merci d’utiliser notre générateur et bonne chance dans vos démarches !
+      <p className="text-gray-800 text-lg leading-relaxed">
+        Pour toute question, suggestion ou collaboration, vous pouvez nous écrire via la page <a href="/contact" className="text-blue-600 hover:underline">Contact</a>.
+        <br />
+        Merci d’utiliser notre générateur, et <strong>bonne chance dans vos démarches !</strong>
       </p>
     </div>
   );
