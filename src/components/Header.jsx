@@ -3,13 +3,19 @@ import logo from "../assets/images/LogoEntreprise.png"; // adapte le chemin selo
 
 export default function Header() {
   return (
-    <header className="bg-gradient-to-r from-[#2c2c72] to-[#4849a7] py-4 px-8 text-white shadow-md">
+    <header className="bg-gradient-to-r from-[#4c5acb] to-[#7e88f5] py-4 px-8 text-white shadow-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
+        
         {/* Logo + Titre */}
         <Link to="/" className="text-2xl sm:text-3xl font-bold flex items-center gap-2">
-          <img src={logo} alt="LogoEntreprise" className="w-8 h-8 object-contain" />
+          <img
+            src={logo}
+            alt="LogoEntreprise"
+            className="w-8 h-8 object-contain drop-shadow-md"
+          />
           <span>
-            <span className="font-extrabold">Votre CV</span> <span className="font-light">en ligne</span>
+            <span className="font-extrabold">Votre CV</span>{" "}
+            <span className="font-light">en ligne</span>
           </span>
         </Link>
 
