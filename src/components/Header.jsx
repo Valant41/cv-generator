@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/images/logo.png"; // adapte le chemin selon ton arborescence
+import logo from "../assets/images/logoEntreprise.png"; // adapte le chemin selon ton arborescence
 
 export default function Header() {
   return (
