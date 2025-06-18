@@ -72,7 +72,7 @@ export default function Home() {
           <li><strong>📌 Le service est-il vraiment gratuit ?</strong><br />Oui, totalement. Aucun paiement ou compte requis.</li>
           <li><strong>🛡️ Où sont stockées mes données ?</strong><br />Nulle part. Tout reste dans votre navigateur.</li>
           <li><strong>✏️ Puis-je modifier mon CV après l’avoir généré ?</strong><br />Oui, vous pouvez revenir en arrière et ajuster vos données à tout moment.</li>
-          <li><strong>📩 Comment vous contacter ?</strong><br />Via la page “À propos” ou à l’adresse contact@votresite.com (remplace selon ton cas).</li>
+          <li><strong>📩 Comment vous contacter ?</strong><br />Via la page “Contact” ou à l’adresse valant045@hotmail.com</li>
         </ul>
       </div>
 

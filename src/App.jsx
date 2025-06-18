@@ -10,6 +10,7 @@ import Confidentialite from "./components/Confidentialite";
 import MentionsLegales from "./components/MentionsLegales";
 import APropos from "./components/APropos";
 import Home from "./components/Home";
+import Contact from "./components/Contact";
 
 
 function Footer() {
@@ -22,6 +23,9 @@ function Footer() {
         |
         <Link to="/mentions-legales" className="hover:underline mx-2">
           Mentions légales
+        </Link>
+        <Link to="/contact" className="hover:underline mx-2">
+          Contact
         </Link>
       </p>
     </footer>
@@ -97,7 +101,8 @@ export default function App() {
           <Route path="/lettre-de-motivation" element={<CoverLetterForm />} />
           <Route path="/confidentialite" element={<Confidentialite />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
-          <Route path="/a-propos" element={<APropos />} /> 
+          <Route path="/a-propos" element={<APropos />} />
+          <Route path="/contact" element={<Contact />} />  
           
         </Routes>
       </main>
