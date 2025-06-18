@@ -12,7 +12,7 @@ export default function Header() {
         {/* Navigation */}
         <nav className="hidden md:flex items-center gap-6 text-sm sm:text-base font-semibold">
           <Link to="/contact" className="hover:underline">Contacter</Link>
-          <Link to="/login" className="hover:underline">Log in</Link>
+          <Link to="/a-propos" className="hover:underline">A propos</Link>
           <Link
             to="/generateur-cv"
             className="bg-green-400 hover:bg-green-500 text-black font-bold py-2 px-6 rounded-full transition"
