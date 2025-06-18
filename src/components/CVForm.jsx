@@ -163,7 +163,7 @@ export default function CVForm({ onSubmit, initialData = {} }) {
 
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-xl space-y-6">
+    <form onSubmit={handleSubmit} className="max-w-2xl mx-auto p-6 bg-white text-black shadow-md rounded-xl space-y-6">
       <h2 className="text-2xl font-semibold text-gray-700">Créer / Modifier mon CV</h2>
 
     <p className="mb-6 text-sm text-gray-600 bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
