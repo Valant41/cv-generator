@@ -1,83 +1,96 @@
 import { Link } from "react-router-dom";
+import cvImage from "/images/cv-example.png"; // image à adapter
+import stepsImage from "/images/steps.png";
+import contentImage from "/images/content-optimization.png";
+import lettreImage from "/images/motivation-letter.png";
 
 export default function Home() {
   return (
-    <div className="bg-base-100 min-h-screen py-10 px-4">
-      <div className="max-w-6xl mx-auto bg-white p-10 rounded-xl shadow-xl">
-        {/* HERO */}
-        <div className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-primary mb-4">
-            🎯 Créez un CV professionnel et une lettre de motivation en quelques minutes
-          </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Grâce à notre IA, créez des documents de candidature modernes, personnalisés
-            et gratuits. Sans inscription, sans publicité, tout est traité localement.
+    <div className="bg-base-100 text-gray-800">
+
+      {/* Hero section */}
+      <section className="bg-gradient-to-r from-blue-100 to-white py-20 px-6 text-center">
+        <div className="max-w-5xl mx-auto">
+          <h1 className="text-4xl font-extrabold mb-4">Votre CV est ignoré ? 📄</h1>
+          <p className="text-lg mb-6 max-w-2xl mx-auto">
+            Adaptez-le aux recruteurs et aux logiciels de tri automatique (ATS) grâce à notre générateur intelligent.
           </p>
-        </div>
-
-        {/* Sections Info */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-          {/* Pourquoi un bon CV ? */}
-          <div>
-            <h2 className="text-xl font-semibold mb-2">📌 Pourquoi un bon CV est-il crucial ?</h2>
-            <p className="text-gray-700">
-              Les recruteurs passent moins de 10 secondes par CV. Notre outil vous aide
-              à créer un CV clair, percutant et visuellement professionnel, même sans compétence en design.
-            </p>
-          </div>
-
-          {/* À qui s'adresse le service ? */}
-          <div>
-            <h2 className="text-xl font-semibold mb-2">📚 À qui s’adresse ce service ?</h2>
-            <p className="text-gray-700">
-              Étudiants, jeunes diplômés, salariés en reconversion, freelances... Ce service
-              s’adresse à toute personne souhaitant postuler efficacement.
-            </p>
-          </div>
-
-          {/* Fonctionnalités */}
-          <div>
-            <h2 className="text-xl font-semibold mb-2">✨ Fonctionnalités principales</h2>
-            <ul className="list-disc list-inside text-gray-700 space-y-1">
-              <li>Génération de CV assistée par IA</li>
-              <li>Prévisualisation PDF instantanée</li>
-              <li>Lettre de motivation générée automatiquement</li>
-              <li>Export en PDF 100 % gratuit</li>
-              <li>Aucune inscription</li>
-            </ul>
-          </div>
-
-          {/* Vie privée */}
-          <div>
-            <h2 className="text-xl font-semibold mb-2">🔐 Respect de la vie privée</h2>
-            <p className="text-gray-700">
-              Aucune donnée n’est stockée ni envoyée sur nos serveurs. Vos documents sont générés
-              localement dans votre navigateur, pour une confidentialité maximale.
-            </p>
-          </div>
-        </div>
-
-        {/* FAQ */}
-        <div className="mb-12">
-          <h2 className="text-xl font-semibold mb-4">❓ Questions fréquentes</h2>
-          <div className="space-y-2 text-gray-700">
-            <p><strong>📌 Le service est-il gratuit ?</strong><br />Oui, à 100 %.</p>
-            <p><strong>🛡️ Où sont stockées mes données ?</strong><br />Uniquement dans votre navigateur.</p>
-            <p><strong>✏️ Puis-je modifier le contenu ?</strong><br />Oui, autant de fois que nécessaire.</p>
-            <p><strong>📩 Contact ?</strong><br />Par e-mail à <a className="link" href="mailto:valant045@hotmail.com">valant045@hotmail.com</a></p>
-          </div>
-        </div>
-
-        {/* Call To Action */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <Link to="/generateur-cv" className="btn btn-primary text-white">
-            🧾 Commencer mon CV
-          </Link>
-          <Link to="/lettre-de-motivation" className="btn btn-success text-white">
-            📨 Générer ma lettre de motivation
+          <img src={cvImage} alt="Exemple de CV" className="mx-auto max-w-sm rounded shadow-md mb-6" />
+          <Link to="/generateur-cv" className="btn btn-primary text-white px-8">
+            Optimiser mon CV maintenant
           </Link>
         </div>
-      </div>
+      </section>
+
+      {/* Étapes */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-12">Obtenez votre CV professionnel en 3 étapes</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div>
+              <div className="text-4xl text-green-500 mb-2">1️⃣</div>
+              <h3 className="font-semibold mb-2">Choisissez un modèle optimisé</h3>
+              <p className="text-gray-600">Créé pour passer les filtres ATS des recruteurs.</p>
+            </div>
+            <div>
+              <div className="text-4xl text-green-500 mb-2">2️⃣</div>
+              <h3 className="font-semibold mb-2">Ajoutez vos infos ou utilisez l’IA</h3>
+              <p className="text-gray-600">Notre assistant IA complète ou reformule vos expériences.</p>
+            </div>
+            <div>
+              <div className="text-4xl text-green-500 mb-2">3️⃣</div>
+              <h3 className="font-semibold mb-2">Prévisualisez et téléchargez</h3>
+              <p className="text-gray-600">Générez le PDF en 1 clic, sans inscription.</p>
+            </div>
+          </div>
+          <Link to="/generateur-cv" className="btn btn-success mt-10">
+            Créer mon CV
+          </Link>
+        </div>
+      </section>
+
+      {/* Optimisation IA */}
+      <section className="py-20 px-6 bg-blue-50">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 items-center gap-10">
+          <div>
+            <h2 className="text-3xl font-bold mb-4">🎯 Optimisez votre contenu avec l’IA</h2>
+            <p className="text-gray-700 mb-6">
+              Générez automatiquement des phrases d'accroche, reformulez vos expériences
+              ou laissez l'assistant s’occuper de tout. C’est rapide, clair, professionnel.
+            </p>
+            <Link to="/generateur-cv" className="btn btn-primary">
+              Créer mon CV avec IA
+            </Link>
+          </div>
+          <img src={contentImage} alt="Optimisation IA" className="rounded shadow-md" />
+        </div>
+      </section>
+
+      {/* Lettre de motivation */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 items-center gap-10">
+          <img src={lettreImage} alt="Lettre de motivation" className="rounded shadow-md" />
+          <div>
+            <h2 className="text-3xl font-bold mb-4">💌 Lettre de motivation sur-mesure</h2>
+            <p className="text-gray-700 mb-6">
+              Notre outil IA rédige automatiquement une lettre adaptée à votre profil, au poste visé
+              et cohérente avec votre CV.
+            </p>
+            <Link to="/lettre-de-motivation" className="btn btn-accent text-white">
+              Générer ma lettre
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Appel final */}
+      <section className="py-16 text-center bg-gradient-to-r from-green-50 to-white">
+        <h2 className="text-2xl font-semibold mb-4">Prêt à vous démarquer ?</h2>
+        <p className="mb-6 text-gray-600">Commencez gratuitement, sans inscription.</p>
+        <Link to="/generateur-cv" className="btn btn-success px-10 text-white">
+          🧾 Commencer mon CV
+        </Link>
+      </section>
     </div>
   );
 }
