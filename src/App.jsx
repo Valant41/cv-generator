@@ -11,6 +11,8 @@ import MentionsLegales from "./components/MentionsLegales";
 import APropos from "./components/APropos";
 import Home from "./components/Home";
 import Contact from "./components/Contact";
+import ScrollToTop from "./components/ScrollToTop";
+<ScrollToTop />
 
 
 function Footer() {
@@ -49,6 +51,7 @@ export default function App() {
     <div className="bg-gray-100 min-h-screen flex flex-col">
       <Header />
       <main className="py-6 px-4 flex-grow">
+        <ScrollToTop />
         <Routes>
           {/* ✅ Page d’accueil */}
           <Route path="/" element={<Home />} />
