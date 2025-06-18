@@ -18,22 +18,23 @@ import ScrollToTop from "./components/ScrollToTop";
 function Footer() {
   return (
     <footer className="mt-12 py-6 border-t text-center text-sm text-gray-500">
-      <p>
-        <Link to="/confidentialite" className="hover:underline mx-2">
+      <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4 px-4">
+        <Link to="/confidentialite" className="hover:underline">
           Politique de confidentialité
         </Link>
-        |
-        <Link to="/mentions-legales" className="hover:underline mx-2">
+        <span className="hidden sm:inline">|</span>
+        <Link to="/mentions-legales" className="hover:underline">
           Mentions légales
         </Link>
-        |
-        <Link to="/contact" className="hover:underline mx-2">
+        <span className="hidden sm:inline">|</span>
+        <Link to="/contact" className="hover:underline">
           Contact
         </Link>
-      </p>
+      </div>
     </footer>
   );
 }
+
 
 export default function App() {
   const [cvData, setCvData] = useState(null);
