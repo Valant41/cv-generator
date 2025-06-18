@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import cvImage from "/images/cv-example.png"; // image à adapter
-import stepsImage from "/images/steps.png";
-import contentImage from "/images/content-optimization.png";
-import lettreImage from "/images/motivation-letter.png";
+import cvImage from "../assets/images/cv-example.png"; // image à adapter
+import stepsImage from "../assets/images/steps.png";
+import contentImage from "../assets/images/content-optimization.png";
+import lettreImage from "../assets/images/motivation-letter.png";
 
 export default function Home() {
   return (
