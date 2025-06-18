@@ -21,6 +21,7 @@ export default function CoverLetterForm() {
   const cvData = location.state?.cvData;
 
   const [loading, setLoading] = useState(false);
+  const [generatedLetter, setGeneratedLetter] = useState("");
   const [form, setForm] = useState({
     fullName: "",
     jobTitle: "",
@@ -33,19 +34,24 @@ export default function CoverLetterForm() {
     recruiterName: "",
   });
 
-  const [generatedLetter, setGeneratedLetter] = useState("");
-
   useEffect(() => {
     if (cvData) {
       setForm((prev) => ({
         ...prev,
         fullName: cvData.fullName || "",
         jobTitle: cvData.jobTitle || "",
-        education: cvData.formations?.map(f => f.degree + " à " + f.school).join(", ") || "",
+        education:
+          cvData.formations
+            ?.map((f) => `${f.degree} à ${f.school}`)
+            .join(", ") || "",
         skills: cvData.skills || "",
         experiences: Array.isArray(cvData.experiences)
-          ? cvData.experiences.map(e => `${e.position} chez ${e.company}`).join(", ")
-          : typeof cvData.experiences === "string" ? cvData.experiences : "",
+          ? cvData.experiences
+              .map((e) => `${e.position} chez ${e.company}`)
+              .join(", ")
+          : typeof cvData.experiences === "string"
+          ? cvData.experiences
+          : "",
         interests: cvData.interests || "",
       }));
     }
@@ -72,12 +78,14 @@ export default function CoverLetterForm() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-4">📝 Générer ma lettre de motivation</h1>
+    <div className="max-w-2xl mx-auto p-6 bg-white text-black rounded shadow-md">
+      <h1 className="text-2xl font-bold mb-4 text-gray-800">
+        📝 Générer ma lettre de motivation
+      </h1>
 
       {Object.entries(form).map(([key, value]) => (
         <div key={key} className="mb-4">
-          <label className="block font-semibold mb-1">
+          <label className="block font-semibold mb-1 text-gray-800">
             {fieldLabels[key] || key}
           </label>
           {(key === "experiences" || key === "interests") ? (
@@ -85,7 +93,7 @@ export default function CoverLetterForm() {
               name={key}
               value={value}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-3 py-2"
+              className="w-full border border-gray-300 rounded px-3 py-2 bg-white text-black"
             />
           ) : (
             <input
@@ -93,7 +101,7 @@ export default function CoverLetterForm() {
               name={key}
               value={value}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded px-3 py-2"
+              className="w-full border border-gray-300 rounded px-3 py-2 bg-white text-black"
             />
           )}
         </div>
@@ -108,9 +116,25 @@ export default function CoverLetterForm() {
 
       {loading && (
         <div className="mt-6 flex justify-center items-center gap-2 text-gray-600">
-          <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+          <svg
+            className="animate-spin h-5 w-5"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              className="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="4"
+            ></circle>
+            <path
+              className="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+            ></path>
           </svg>
           <span>Génération de la lettre en cours...</span>
         </div>
@@ -119,12 +143,14 @@ export default function CoverLetterForm() {
       {generatedLetter && (
         <>
           <div className="mt-6">
-            <label className="block font-semibold mb-2">Lettre générée (modifiable) :</label>
+            <label className="block font-semibold mb-2 text-gray-800">
+              Lettre générée (modifiable) :
+            </label>
             <textarea
               value={generatedLetter}
               onChange={(e) => setGeneratedLetter(e.target.value)}
               rows={10}
-              className="w-full border border-gray-300 rounded px-3 py-2 whitespace-pre-wrap"
+              className="w-full border border-gray-300 rounded px-3 py-2 whitespace-pre-wrap bg-white text-black"
             />
           </div>
 
