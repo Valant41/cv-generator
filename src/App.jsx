@@ -24,6 +24,7 @@ function Footer() {
         <Link to="/mentions-legales" className="hover:underline mx-2">
           Mentions légales
         </Link>
+        |
         <Link to="/contact" className="hover:underline mx-2">
           Contact
         </Link>
