@@ -2,29 +2,23 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <header className="bg-white shadow-sm">
-      <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row sm:justify-between sm:items-center">
-        {/* Titre */}
-        <h1 className="text-2xl font-bold text-gray-800 text-center sm:text-left mb-2 sm:mb-0">
-          Générateur de CV
-        </h1>
-
-        {/* Liens */}
-        <nav className="flex flex-col sm:flex-row gap-2 sm:gap-6 text-blue-600 text-sm sm:text-base text-center">
-          <Link to="/" className="hover:underline">
-            Accueil
-          </Link>
-          <Link to="/generateur-cv" className="hover:underline">
-            Créer un CV
-          </Link>
-          <Link to="/lettre-de-motivation" className="hover:underline">
-            Lettre de motivation
-          </Link>
-          <Link to="/a-propos" className="hover:underline mx-2">
-            À propos
-          </Link>
-        </nav>
+    <div className="navbar bg-white shadow-md px-6 sticky top-0 z-50">
+      <div className="flex-1">
+        <Link to="/" className="text-2xl font-bold text-gray-800">
+          <span className="text-primary">🧾 Votre CV</span> en ligne
+        </Link>
       </div>
-    </header>
+      <div className="hidden md:flex gap-6 text-sm">
+        <Link to="/" className="hover:text-primary">Accueil</Link>
+        <Link to="/generateur-cv" className="hover:text-primary">Créer un CV</Link>
+        <Link to="/lettre-de-motivation" className="hover:text-primary">Lettre de motivation</Link>
+        <Link to="/a-propos" className="hover:text-primary">À propos</Link>
+      </div>
+      <div className="ml-4">
+        <Link to="/generateur-cv" className="btn btn-primary text-white btn-sm">
+          Commencer
+        </Link>
+      </div>
+    </div>
   );
 }
