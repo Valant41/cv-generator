@@ -187,14 +187,14 @@ export default function CVForm({ onSubmit, initialData = {} }) {
 
       <div>
         <label className="block text-sm font-medium">Nom complet</label>
-        <input type="text" className="w-full mt-1 p-2 border rounded-md" value={fullName} onChange={(e) => setFullName(e.target.value)} required />
+        <input type="text" className="w-full mt-1 p-2 border rounded-md bg-white text-black bg-white text-black" value={fullName} onChange={(e) => setFullName(e.target.value)} required />
       </div>
 
       <div>
         <label className="block text-sm font-medium">Email</label>
         <input
           type="email"
-          className="w-full mt-1 p-2 border rounded-md"
+          className="w-full mt-1 p-2 border rounded-md bg-white text-black"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -205,7 +205,7 @@ export default function CVForm({ onSubmit, initialData = {} }) {
         <label className="block text-sm font-medium">Ville</label>
         <input
           type="text"
-          className="w-full mt-1 p-2 border rounded-md"
+          className="w-full mt-1 p-2 border rounded-md bg-white text-black"
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
@@ -215,7 +215,7 @@ export default function CVForm({ onSubmit, initialData = {} }) {
         <label className="block text-sm font-medium">Téléphone</label>
         <input
           type="tel"
-          className="w-full mt-1 p-2 border rounded-md"
+          className="w-full mt-1 p-2 border rounded-md bg-white text-black"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           placeholder="+33 6 12 34 56 78"
@@ -226,7 +226,7 @@ export default function CVForm({ onSubmit, initialData = {} }) {
         <label className="block text-sm font-medium">Centres d’intérêt</label>
         <textarea
           rows="2"
-          className="w-full mt-1 p-2 border rounded-md"
+          className="w-full mt-1 p-2 border rounded-md bg-white text-black"
           value={interests}
           onChange={(e) => setInterests(e.target.value)}
           placeholder="Ex : Musique, sport, voyage..."
@@ -240,29 +240,29 @@ export default function CVForm({ onSubmit, initialData = {} }) {
 
       <div>
         <label className="block text-sm font-medium">Poste visé</label>
-        <input type="text" className="w-full mt-1 p-2 border rounded-md" value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} required />
+        <input type="text" className="w-full mt-1 p-2 border rounded-md bg-white text-black" value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} required />
       </div>
 
       <div>
         <label className="block text-sm font-medium">Formation actuelle (résumé)</label>
-        <input type="text" className="w-full mt-1 p-2 border rounded-md" value={education} onChange={(e) => setEducation(e.target.value)} />
+        <input type="text" className="w-full mt-1 p-2 border rounded-md bg-white text-black" value={education} onChange={(e) => setEducation(e.target.value)} />
       </div>
 
       <div>
         <label className="block text-sm font-medium">Compétences (séparées par des virgules)</label>
-        <input type="text" className="w-full mt-1 p-2 border rounded-md" value={skills} onChange={(e) => setSkills(e.target.value)} />
+        <input type="text" className="w-full mt-1 p-2 border rounded-md bg-white text-black" value={skills} onChange={(e) => setSkills(e.target.value)} />
       </div>
 
       <div>
         <label className="block text-sm font-medium">Résumé d'expérience (facultatif)</label>
-        <textarea className="w-full mt-1 p-2 border rounded-md" rows="3" value={experience} onChange={(e) => setExperience(e.target.value)}></textarea>
+        <textarea className="w-full mt-1 p-2 border rounded-md bg-white text-black" rows="3" value={experience} onChange={(e) => setExperience(e.target.value)}></textarea>
       </div>
 
       <div>
   <label className="block text-sm font-medium">À propos de moi</label>
   <textarea
     rows={4}
-    className="w-full mt-1 p-2 border rounded-md"
+    className="w-full mt-1 p-2 border rounded-md bg-white text-black"
     value={aboutMe}
     onChange={(e) => setAboutMe(e.target.value)}
     placeholder="Ex : Passionné par le développement web, je suis rigoureux, autonome et motivé..."
@@ -315,7 +315,7 @@ export default function CVForm({ onSubmit, initialData = {} }) {
       <div>
         <label className="block text-sm font-medium mb-1">Langues parlées</label>
         <div className="flex flex-col md:flex-row gap-2 mb-2">
-          <select value={selectedLang} onChange={(e) => setSelectedLang(e.target.value)} className="w-full md:w-1/3 p-2 border rounded-md">
+          <select value={selectedLang} onChange={(e) => setSelectedLang(e.target.value)} className="w-full md:w-1/3 p-2 border rounded-md bg-white text-black">
             <option value="">Choisir une langue</option>
             {["Français", "Anglais", "Espagnol", "Allemand", "Italien", "Autre"]
               .filter(lang => lang === "Autre" || !languages.some(l => l.lang.toLowerCase() === lang.toLowerCase()))
@@ -325,10 +325,10 @@ export default function CVForm({ onSubmit, initialData = {} }) {
           </select>
 
           {selectedLang === "Autre" && (
-            <input type="text" placeholder="Langue" className="w-full md:w-1/3 p-2 border rounded-md" value={customLang} onChange={(e) => setCustomLang(e.target.value)} />
+            <input type="text" placeholder="Langue" className="w-full md:w-1/3 p-2 border rounded-md bg-white text-black" value={customLang} onChange={(e) => setCustomLang(e.target.value)} />
           )}
 
-          <select value={selectedLevel} onChange={(e) => setSelectedLevel(e.target.value)} className="w-full md:w-1/3 p-2 border rounded-md">
+          <select value={selectedLevel} onChange={(e) => setSelectedLevel(e.target.value)} className="w-full md:w-1/3 p-2 border rounded-md bg-white text-black">
             <option value="">Niveau</option>
             <option value="100">Langue maternelle</option>
             <option value="80">Professionnel</option>
@@ -355,11 +355,11 @@ export default function CVForm({ onSubmit, initialData = {} }) {
       <div className="space-y-2">
         <h3 className="text-lg font-semibold text-blue-700 mt-6">🎓 Parcours scolaire</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-          <input type="text" placeholder="Diplôme" className="p-2 border rounded-md" value={newFormation.degree} onChange={(e) => setNewFormation({ ...newFormation, degree: e.target.value })} />
-          <input type="text" placeholder="Établissement" className="p-2 border rounded-md" value={newFormation.school} onChange={(e) => setNewFormation({ ...newFormation, school: e.target.value })} />
-          <input type="text" placeholder="Année de début" className="p-2 border rounded-md" value={newFormation.startYear} onChange={(e) => setNewFormation({ ...newFormation, startYear: e.target.value })} />
-          <input type="text" placeholder="Année de fin" className="p-2 border rounded-md" value={newFormation.endYear} onChange={(e) => setNewFormation({ ...newFormation, endYear: e.target.value })} />
-          <textarea placeholder="Description" className="md:col-span-2 p-2 border rounded-md" value={newFormation.description} onChange={(e) => setNewFormation({ ...newFormation, description: e.target.value })}></textarea>
+          <input type="text" placeholder="Diplôme" className="p-2 border rounded-md bg-white text-black" value={newFormation.degree} onChange={(e) => setNewFormation({ ...newFormation, degree: e.target.value })} />
+          <input type="text" placeholder="Établissement" className="p-2 border rounded-md bg-white text-black" value={newFormation.school} onChange={(e) => setNewFormation({ ...newFormation, school: e.target.value })} />
+          <input type="text" placeholder="Année de début" className="p-2 border rounded-md bg-white text-black" value={newFormation.startYear} onChange={(e) => setNewFormation({ ...newFormation, startYear: e.target.value })} />
+          <input type="text" placeholder="Année de fin" className="p-2 border rounded-md bg-white text-black" value={newFormation.endYear} onChange={(e) => setNewFormation({ ...newFormation, endYear: e.target.value })} />
+          <textarea placeholder="Description" className="md:col-span-2 p-2 border rounded-md bg-white text-black" value={newFormation.description} onChange={(e) => setNewFormation({ ...newFormation, description: e.target.value })}></textarea>
         </div>
         <button type="button" onClick={addFormation} className="bg-blue-500 text-white px-4 py-1 rounded-md mt-1">Ajouter</button>
         <ul className="text-sm text-gray-700 mt-2 space-y-1">
@@ -376,11 +376,11 @@ export default function CVForm({ onSubmit, initialData = {} }) {
       <div className="space-y-2">
         <h3 className="text-lg font-semibold text-blue-700 mt-6">💼 Expériences professionnelles</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-          <input type="text" placeholder="Poste" className="p-2 border rounded-md" value={newExperience.position} onChange={(e) => setNewExperience({ ...newExperience, position: e.target.value })} />
-          <input type="text" placeholder="Entreprise" className="p-2 border rounded-md" value={newExperience.company} onChange={(e) => setNewExperience({ ...newExperience, company: e.target.value })} />
-          <input type="text" placeholder="Année de début" className="p-2 border rounded-md" value={newExperience.startYear} onChange={(e) => setNewExperience({ ...newExperience, startYear: e.target.value })} />
-          <input type="text" placeholder="Année de fin" className="p-2 border rounded-md" value={newExperience.endYear} onChange={(e) => setNewExperience({ ...newExperience, endYear: e.target.value })} />
-          <textarea placeholder="Description" className="md:col-span-2 p-2 border rounded-md" value={newExperience.description} onChange={(e) => setNewExperience({ ...newExperience, description: e.target.value })}></textarea>
+          <input type="text" placeholder="Poste" className="p-2 border rounded-md bg-white text-black" value={newExperience.position} onChange={(e) => setNewExperience({ ...newExperience, position: e.target.value })} />
+          <input type="text" placeholder="Entreprise" className="p-2 border rounded-md bg-white text-black" value={newExperience.company} onChange={(e) => setNewExperience({ ...newExperience, company: e.target.value })} />
+          <input type="text" placeholder="Année de début" className="p-2 border rounded-md bg-white text-black" value={newExperience.startYear} onChange={(e) => setNewExperience({ ...newExperience, startYear: e.target.value })} />
+          <input type="text" placeholder="Année de fin" className="p-2 border rounded-md bg-white text-black" value={newExperience.endYear} onChange={(e) => setNewExperience({ ...newExperience, endYear: e.target.value })} />
+          <textarea placeholder="Description" className="md:col-span-2 p-2 border rounded-md bg-white text-black" value={newExperience.description} onChange={(e) => setNewExperience({ ...newExperience, description: e.target.value })}></textarea>
         </div>
         <button type="button" onClick={addExperience} className="bg-blue-500 text-white px-4 py-1 rounded-md mt-1">Ajouter</button>
         <ul className="text-sm text-gray-700 mt-2 space-y-1">
