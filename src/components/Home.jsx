@@ -81,16 +81,24 @@ export default function Home() {
             alt="Lettre de motivation"
             className="rounded shadow-md max-w-full h-auto"
           />
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4">💌 Lettre de motivation sur-mesure</h2>
-            <p className="text-gray-700 mb-6">
-              Notre outil IA rédige automatiquement une lettre adaptée à votre profil, au poste visé
-              et cohérente avec votre CV.
-            </p>
-            <Link to="/lettre-de-motivation" className="btn btn-accent text-white">
-              Générer ma lettre
-            </Link>
-          </div>
+          <div className="relative bg-white rounded-xl shadow-md p-6 mt-6 max-w-xl mx-auto">
+  {/* Onglet arrondi en haut */}
+  <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-6 bg-white rounded-t-xl shadow shadow-gray-300"></div>
+
+  <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-center text-gray-800">
+    💌 Lettre de motivation sur-mesure
+  </h2>
+  <p className="text-gray-700 mb-6 text-center">
+    Notre outil IA rédige automatiquement une lettre adaptée à votre profil, au poste visé
+    et cohérente avec votre CV.
+  </p>
+  <div className="flex justify-center">
+    <Link to="/lettre-de-motivation" className="btn btn-accent text-white">
+      Générer ma lettre
+    </Link>
+  </div>
+</div>
+
         </div>
       </section>
 
