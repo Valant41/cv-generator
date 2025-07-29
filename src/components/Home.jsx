@@ -83,20 +83,29 @@ export default function Home() {
           />
           <div className="relative bg-white rounded-xl shadow-md p-6 mt-6 max-w-xl mx-auto">
   {/* Onglet arrondi en haut */}
-  <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-6 bg-white rounded-t-xl shadow shadow-gray-300"></div>
+ <div className="relative bg-yellow-200 rounded-xl shadow-md p-6 mt-6 max-w-xl mx-auto">
 
-  <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-center text-gray-800">
-    💌 Lettre de motivation sur-mesure
-  </h2>
-  <p className="text-gray-700 mb-6 text-center">
+  {/* Onglet haut gauche comme un dossier */}
+  <div className="absolute -top-3 left-0 w-32 h-8 bg-yellow-300 rounded-tl-xl rounded-tr-[8px] shadow-md z-10"></div>
+
+  <div className="flex items-center gap-2 mb-4 mt-2">
+    <span className="text-2xl">💌</span>
+    <h2 className="text-xl sm:text-2xl font-bold text-gray-800">
+      Lettre de motivation sur-mesure
+    </h2>
+  </div>
+
+  <p className="text-gray-800 mb-6">
     Notre outil IA rédige automatiquement une lettre adaptée à votre profil, au poste visé
     et cohérente avec votre CV.
   </p>
-  <div className="flex justify-center">
-    <Link to="/lettre-de-motivation" className="btn btn-accent text-white">
-      Générer ma lettre
-    </Link>
-  </div>
+
+  <Link to="/lettre-de-motivation" className="btn bg-yellow-500 hover:bg-yellow-600 text-white font-semibold shadow">
+    Générer ma lettre
+  </Link>
+</div>
+
+
 </div>
 
         </div>
